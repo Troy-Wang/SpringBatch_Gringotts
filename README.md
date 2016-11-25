@@ -1,2 +1,2 @@
 # Gringotts
-A batch-processing system base on Spring Batch and Quartz
+A batch-processing system based on Spring Batch and Quartz

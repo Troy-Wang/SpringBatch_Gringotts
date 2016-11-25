@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+    <batch:job id="messageJob" restartable="true">
+        <batch:step id="messageStep">
+            <batch:tasklet>
+                <batch:chunk reader="userInfoReader" processor="messageProcessor" writer="messageWriter"
+                             commit-interval="2" chunk-completion-policy="" retry-limit="2">
+                    <batch:retryable-exception-classes>
+                        <batch:include class="java.lang.NullPointerException"/>
+                    </batch:retryable-exception-classes>
+                </batch:chunk>
+            </batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+    <bean id="jobRepository"
+          class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+
+    <bean id="userInfoReader" class="org.springframework.batch.item.file.FlatFileItemReader">
+        <property name="lineMapper" ref="userInfoLineMapper">
+        </property>
+        <property name="resource" value="file:d:/Github/Gringotts/files/users.txt">
+        </property>
+    </bean>
+
+    <bean id="userInfoLineMapper" class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+        <property name="lineTokenizer">
+            <bean class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+            </bean>
+        </property>
+        <property name="fieldSetMapper">
+            <bean class="troywang.gringotts.dal.mapper.UserInfoMapper">
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="messageProcessor" class="troywang.gringotts.biz.processor.MessageProcessor">
+    </bean>
+
+    <bean id="messageWriter" class="troywang.gringotts.biz.writer.MessageWriter">
+    </bean>
+
+</beans>
