@@ -36,7 +36,7 @@
             </bean>
         </property>
         <property name="fieldSetMapper">
-            <bean class="troywang.gringotts.dal.mapper.UserInfoMapper">
+            <bean class="troywang.gringotts.file.mapper.UserInfoMapper">
             </bean>
         </property>
     </bean>

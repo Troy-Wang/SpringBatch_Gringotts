@@ -1,4 +1,4 @@
-package troywang.gringotts.dal.mapper;
+package troywang.gringotts.file.mapper;
 
 import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;

@@ -42,8 +42,26 @@ public class TestMain {
         launcher.setTaskExecutor(new SimpleAsyncTaskExecutor());
         try {
             Map<String, JobParameter> param = new HashMap<String, JobParameter>();
-            param.put("DAY_RUN", new JobParameter("2"));
+            param.put("DAY_RUN", new JobParameter("1"));
             JobExecution je = launcher.run((Job) cpac.getBean("billingJob"), new JobParameters(param));
+            Thread.sleep(10000);
+            System.out.println(je);
+            System.out.println(je.getJobInstance());
+            System.out.println(je.getStepExecutions());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void runTransConfirmJob() {
+        ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("gringotts_job_trans_confirm.xml");
+        SimpleJobLauncher launcher = new SimpleJobLauncher();
+        launcher.setJobRepository((JobRepository) cpac.getBean("gringottsJobRepository"));
+        launcher.setTaskExecutor(new SimpleAsyncTaskExecutor());
+        try {
+            Map<String, JobParameter> param = new HashMap<String, JobParameter>();
+            param.put("DAY_RUN", new JobParameter("2016-11-25"));
+            JobExecution je = launcher.run((Job) cpac.getBean("gringottsJobTransConfirm"), new JobParameters(param));
             Thread.sleep(10000);
             System.out.println(je);
             System.out.println(je.getJobInstance());
@@ -55,7 +73,7 @@ public class TestMain {
 
     public static void main(String[] args) {
         TestMain test = new TestMain();
-        test.runBillingJob();
+        test.runTransConfirmJob();
     }
 
 }

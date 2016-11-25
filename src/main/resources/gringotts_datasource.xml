@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--DataSources-->
+    <!--spring batch datasource-->
+    <bean id="gringottsBatchDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/batch_in_action"/>
+        <property name="username" value="spring"/>
+        <property name="password" value="Troywang2"/>
+    </bean>
+
+    <!--datasource of your own business system-->
+    <bean id="gringottsTestDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/batch_in_action"/>
+        <property name="username" value="spring"/>
+        <property name="password" value="Troywang2"/>
+    </bean>
+
+</beans>
