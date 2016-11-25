@@ -15,7 +15,7 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
  */
 public class TestMain {
 
-    public static void main(String[] args) {
+    public void runMessageJob() {
         ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("message_job.xml");
         SimpleJobLauncher launcher = new SimpleJobLauncher();
         launcher.setJobRepository((JobRepository) cpac.getBean("jobRepository"));
@@ -33,6 +33,29 @@ public class TestMain {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void runBillingJob() {
+        ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("billing_job.xml");
+        SimpleJobLauncher launcher = new SimpleJobLauncher();
+        launcher.setJobRepository((JobRepository) cpac.getBean("batchJobRepository"));
+        launcher.setTaskExecutor(new SimpleAsyncTaskExecutor());
+        try {
+            Map<String, JobParameter> param = new HashMap<String, JobParameter>();
+            param.put("DAY_RUN", new JobParameter("2"));
+            JobExecution je = launcher.run((Job) cpac.getBean("billingJob"), new JobParameters(param));
+            Thread.sleep(10000);
+            System.out.println(je);
+            System.out.println(je.getJobInstance());
+            System.out.println(je.getStepExecutions());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        TestMain test = new TestMain();
+        test.runBillingJob();
     }
 
 }
