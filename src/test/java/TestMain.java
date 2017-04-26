@@ -18,18 +18,22 @@ public class TestMain {
     public void runMessageJob() {
         ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("message_job.xml");
         SimpleJobLauncher launcher = new SimpleJobLauncher();
-        launcher.setJobRepository((JobRepository) cpac.getBean("jobRepository"));
+        launcher.setJobRepository((JobRepository) cpac.getBean("batchJobRepository"));
         launcher.setTaskExecutor(new SimpleAsyncTaskExecutor());
         try {
             Map<String, JobParameter> param = new HashMap<String, JobParameter>();
-            param.put("DAY_RUN", new JobParameter("2016-11-23"));
+            param.put("DAY_RUN", new JobParameter("2016-11-35"));
             JobExecution je = launcher.run((Job) cpac.getBean("messageJob"), new JobParameters(param));
             Thread.sleep(2000);
             System.out.println(je);
             System.out.println(je.getJobInstance());
             System.out.println(je.getStepExecutions());
-            Thread.sleep(6000);
+            Thread.sleep(20000);
             launcher.run((Job) cpac.getBean("messageJob"), new JobParameters(param));
+            //            Thread.sleep(10000);
+            //            launcher.run((Job) cpac.getBean("messageJob"), new JobParameters(param));
+            //            Thread.sleep(10000);
+            //            launcher.run((Job) cpac.getBean("messageJob"), new JobParameters(param));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,7 +64,7 @@ public class TestMain {
         launcher.setTaskExecutor(new SimpleAsyncTaskExecutor());
         try {
             Map<String, JobParameter> param = new HashMap<String, JobParameter>();
-            param.put("DAY_RUN", new JobParameter("2016-11-25"));
+            param.put("DAY_RUN", new JobParameter("2016-11-26"));
             JobExecution je = launcher.run((Job) cpac.getBean("gringottsJobTransConfirm"), new JobParameters(param));
             Thread.sleep(10000);
             System.out.println(je);
@@ -73,7 +77,7 @@ public class TestMain {
 
     public static void main(String[] args) {
         TestMain test = new TestMain();
-        test.runTransConfirmJob();
+        test.runMessageJob();
     }
 
 }

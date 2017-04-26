@@ -12,9 +12,11 @@ import troywang.gringotts.model.User;
 public class UserInfoMapper implements FieldSetMapper<User> {
 
     public User mapFieldSet(FieldSet fieldSet) throws BindException {
+        System.out.println(
+                "UserInfoMapper, CurrentThread=" + Thread.currentThread().getId() + ", " + fieldSet.readString("id"));
         User user = new User();
-        user.setUserName(fieldSet.readString(0));
-        user.setAge(fieldSet.readInt(1));
+        user.setUserName(fieldSet.readString("id"));
+        user.setAge(fieldSet.readInt("age"));
         return user;
     }
 }

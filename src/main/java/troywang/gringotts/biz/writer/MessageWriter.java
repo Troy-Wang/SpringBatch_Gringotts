@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.batch.item.ItemWriter;
 
+import troywang.gringotts.base.exception.MoneyNotEnoughException;
 import troywang.gringotts.model.Message;
 
 /**
@@ -14,6 +15,9 @@ public class MessageWriter implements ItemWriter<Message> {
         System.out.println("start to send message....");
         for (Message m : list) {
             System.out.println(m.getContent());
+            if (m.getContent().contains("User13")) {
+                throw new MoneyNotEnoughException();
+            }
         }
     }
 }

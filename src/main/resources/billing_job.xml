@@ -115,7 +115,7 @@
                 <ref bean="payUsersDbUpdateWriter"/>
             </list>
         </property>
-    </bean>
+    </bean>g
     <bean id="payRecordDbWriter" class="org.springframework.batch.item.database.JdbcBatchItemWriter">
         <property name="dataSource" ref="billingDataSource"/>
         <property name="sql" value="insert into payrecords(id,bill_id,paid_fees) values(:id,:bill.id,:paidFees)"/>
