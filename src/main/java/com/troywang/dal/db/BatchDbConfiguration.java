@@ -3,8 +3,6 @@ package com.troywang.dal.db;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,10 +18,13 @@ public class BatchDbConfiguration {
 
     @Value("${spring.datasource.driver-class-name}")
     private String databaseDriver;
+
     @Value("${spring.datasource.url}")
     private String databaseUrl;
+
     @Value("${spring.datasource.username}")
     private String databaseUsername;
+
     @Value("${spring.datasource.password}")
     private String databasePassword;
 
