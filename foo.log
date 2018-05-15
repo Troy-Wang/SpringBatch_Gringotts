@@ -215,7 +215,7 @@ java.lang.IllegalArgumentException: Invalid character found in method name. HTTP
 2018-05-15 11:58:25.486  INFO 9420 --- [http-nio-8089-exec-3] c.t.web.controller.JobLaucherController  : [JobLauncher] launching job, jobName=demoJob, jobParams={jobName=demoJob, param=201805151158}
 2018-05-15 11:58:25.599  INFO 9420 --- [http-nio-8089-exec-3] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{jobName=demoJob, param=201805151158}]
 2018-05-15 11:58:25.652  INFO 9420 --- [http-nio-8089-exec-3] o.s.batch.core.job.SimpleStepHandler     : Executing step: [demoStep]
-2018-05-15 11:58:25.684  INFO 9420 --- [http-nio-8089-exec-3] com.troywang.biz.reader.EmptyReader      : [empty reader] calling empty reader.....
+2018-05-15 11:58:25.684  INFO 9420 --- [http-nio-8089-exec-3] com.troywang.biz.batch.reader.EmptyReader      : [empty reader] calling empty reader.....
 2018-05-15 11:58:25.732  INFO 9420 --- [http-nio-8089-exec-3] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{jobName=demoJob, param=201805151158}] and the following status: [COMPLETED]
 2018-05-15 11:58:42.211  INFO 9420 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29176cc1: startup date [Tue May 15 11:50:55 CST 2018]; root of context hierarchy
 2018-05-15 11:58:42.217  INFO 9420 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
@@ -300,7 +300,7 @@ java.lang.IllegalArgumentException: Invalid character found in method name. HTTP
 2018-05-15 12:05:32.749  INFO 9675 --- [http-nio-8089-exec-1] c.t.web.controller.JobLaucherController  : [JobLauncher] launching job, jobName=demoJob, jobParams={jobName=demoJob, param=201805151205}
 2018-05-15 12:05:32.824  INFO 9675 --- [http-nio-8089-exec-1] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{jobName=demoJob, param=201805151205}]
 2018-05-15 12:05:32.866  INFO 9675 --- [http-nio-8089-exec-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [demoStep]
-2018-05-15 12:05:32.889  INFO 9675 --- [http-nio-8089-exec-1] com.troywang.biz.reader.EmptyReader      : [empty reader] calling empty reader.....
+2018-05-15 12:05:32.889  INFO 9675 --- [http-nio-8089-exec-1] com.troywang.biz.batch.reader.EmptyReader      : [empty reader] calling empty reader.....
 2018-05-15 12:05:32.923  INFO 9675 --- [http-nio-8089-exec-1] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{jobName=demoJob, param=201805151205}] and the following status: [COMPLETED]
 2018-05-15 12:06:56.759  INFO 9675 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27ae2fd0: startup date [Tue May 15 12:05:00 CST 2018]; root of context hierarchy
 2018-05-15 12:06:56.762  INFO 9675 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647

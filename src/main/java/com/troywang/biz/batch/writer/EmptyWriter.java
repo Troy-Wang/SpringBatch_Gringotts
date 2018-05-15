@@ -1,4 +1,4 @@
-package com.troywang.biz.writer;
+package com.troywang.biz.batch.writer;
 
 import java.util.List;
 

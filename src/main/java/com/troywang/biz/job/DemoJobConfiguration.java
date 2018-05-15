@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.troywang.biz.processor.EmptyProcessor;
-import com.troywang.biz.reader.EmptyReader;
-import com.troywang.biz.writer.EmptyWriter;
+import com.troywang.biz.batch.processor.EmptyProcessor;
+import com.troywang.biz.batch.reader.EmptyReader;
+import com.troywang.biz.batch.writer.EmptyWriter;
 
 /**
  * Created by troywang on 2018/5/14.

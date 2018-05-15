@@ -1,4 +1,4 @@
-package com.troywang.biz.reader;
+package com.troywang.biz.batch.reader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
