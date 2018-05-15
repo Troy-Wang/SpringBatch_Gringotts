@@ -6,9 +6,11 @@ package com.troywang.base.enums;
  */
 public enum GringottsErrorCodeEnum {
 
-    SUCCESS("000000", "成功"),
+    SUCCESS("000000", "SUCCESS"),
 
-    FAIL("000001", "失败"),;
+    FAIL("000001", "FAIL"),
+
+    JOB_LAUNCH_FAIL("000002", "Job Launch Failed");
 
     private String code;
     private String message;

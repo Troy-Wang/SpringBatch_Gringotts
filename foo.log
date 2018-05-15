@@ -1,0 +1,317 @@
+2018-05-15 11:41:48.118  INFO 9045 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9045 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 11:41:48.122 DEBUG 9045 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 11:41:48.124  INFO 9045 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 11:41:48.291  INFO 9045 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4df50bcc: startup date [Tue May 15 11:41:48 CST 2018]; root of context hierarchy
+2018-05-15 11:41:49.530  WARN 9045 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 11:41:49.597  INFO 9045 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 11:41:49.669  INFO 9045 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 11:41:50.045  INFO 9045 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 11:41:50.056  INFO 9045 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 11:41:50.251  INFO 9045 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d8ced69b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:41:50.347  INFO 9045 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$43c091ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:41:50.388  WARN 9045 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2018-05-15 11:41:50.400  INFO 9045 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-05-15 11:41:50.415 ERROR 9045 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at com.troywang.GringottsApplication.main(GringottsApplication.java:10) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:204) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	... 8 common frames omitted
+
+2018-05-15 11:43:02.765  INFO 9055 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9055 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 11:43:02.768 DEBUG 9055 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 11:43:02.770  INFO 9055 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 11:43:02.871  INFO 9055 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4278a03f: startup date [Tue May 15 11:43:02 CST 2018]; root of context hierarchy
+2018-05-15 11:43:04.292  WARN 9055 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 11:43:04.360  INFO 9055 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 11:43:04.430  INFO 9055 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 11:43:04.793  INFO 9055 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 11:43:04.806  INFO 9055 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 11:43:04.995  INFO 9055 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$df719d8a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:43:05.060  INFO 9055 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$4a6358b9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:43:05.088  WARN 9055 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2018-05-15 11:43:05.096  INFO 9055 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-05-15 11:43:05.107 ERROR 9055 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at com.troywang.GringottsApplication.main(GringottsApplication.java:12) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:204) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	... 8 common frames omitted
+
+2018-05-15 11:44:22.426  INFO 9062 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9062 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 11:44:22.429 DEBUG 9062 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 11:44:22.431  INFO 9062 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 11:44:22.539  INFO 9062 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4278a03f: startup date [Tue May 15 11:44:22 CST 2018]; root of context hierarchy
+2018-05-15 11:44:24.001  WARN 9062 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 11:44:24.072  INFO 9062 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 11:44:24.153  INFO 9062 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 11:44:24.550  INFO 9062 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 11:44:24.562  INFO 9062 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 11:44:24.801  INFO 9062 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d730f1ac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:44:24.860  INFO 9062 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$4222acdb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:44:24.895  WARN 9062 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2018-05-15 11:44:24.905  INFO 9062 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-05-15 11:44:24.919 ERROR 9062 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at com.troywang.GringottsApplication.main(GringottsApplication.java:14) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:204) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	... 8 common frames omitted
+
+2018-05-15 11:47:13.253  INFO 9086 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9086 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 11:47:13.264 DEBUG 9086 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 11:47:13.268  INFO 9086 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 11:47:13.373  INFO 9086 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29176cc1: startup date [Tue May 15 11:47:13 CST 2018]; root of context hierarchy
+2018-05-15 11:47:14.703  WARN 9086 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 11:47:14.764  INFO 9086 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 11:47:14.838  INFO 9086 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 11:47:15.288  INFO 9086 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 11:47:15.302  INFO 9086 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 11:47:15.492  INFO 9086 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7ae6c6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:47:15.572  INFO 9086 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$756ca1f5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:47:15.604  WARN 9086 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+2018-05-15 11:47:15.613  INFO 9086 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-05-15 11:47:15.625 ERROR 9086 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at com.troywang.GringottsApplication.main(GringottsApplication.java:14) [classes/:na]
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:204) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
+	... 8 common frames omitted
+
+2018-05-15 11:50:55.755  INFO 9420 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9420 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 11:50:55.760 DEBUG 9420 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 11:50:55.763  INFO 9420 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 11:50:55.962  INFO 9420 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29176cc1: startup date [Tue May 15 11:50:55 CST 2018]; root of context hierarchy
+2018-05-15 11:50:57.160  WARN 9420 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 11:50:57.246  INFO 9420 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 11:50:57.323  INFO 9420 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 11:50:57.675  INFO 9420 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 11:50:57.688  INFO 9420 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 11:50:57.862  INFO 9420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9fbc6378] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:50:57.942  INFO 9420 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$aae1ea7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 11:50:58.417  INFO 9420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2018-05-15 11:50:58.461  INFO 9420 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-15 11:50:58.462  INFO 9420 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-15 11:50:58.468  INFO 9420 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wangzhijian02/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-05-15 11:50:58.569  INFO 9420 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-15 11:50:58.569  INFO 9420 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2607 ms
+2018-05-15 11:50:58.750  INFO 9420 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-05-15 11:50:58.753  INFO 9420 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-05-15 11:50:58.754  INFO 9420 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-05-15 11:50:58.754  INFO 9420 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-05-15 11:50:58.754  INFO 9420 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-05-15 11:50:58.807  INFO 9420 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2018-05-15 11:50:59.025  INFO 9420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 11:50:59.388  INFO 9420 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29176cc1: startup date [Tue May 15 11:50:55 CST 2018]; root of context hierarchy
+2018-05-15 11:50:59.449  INFO 9420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/jobLauncher],methods=[GET],produces=[application/json]}" onto public com.troywang.base.model.BaseResponse com.troywang.web.controller.JobLaucherController.launchJob(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-05-15 11:50:59.452  INFO 9420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-05-15 11:50:59.453  INFO 9420 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-05-15 11:50:59.485  INFO 9420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 11:50:59.485  INFO 9420 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 11:51:00.401  INFO 9420 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2018-05-15 11:51:00.439  INFO 9420 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2018-05-15 11:51:00.514  INFO 9420 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [org/springframework/batch/core/schema-mysql.sql]
+2018-05-15 11:51:00.647  INFO 9420 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [org/springframework/batch/core/schema-mysql.sql] in 133 ms.
+2018-05-15 11:51:01.005  INFO 9420 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-05-15 11:51:01.171  INFO 9420 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-05-15 11:51:01.186  INFO 9420 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-05-15 11:51:01.186  INFO 9420 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-05-15 11:51:01.187  INFO 9420 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-05-15 11:51:01.188  INFO 9420 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-05-15 11:51:01.188  INFO 9420 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-05-15 11:51:01.188  INFO 9420 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-05-15 11:51:01.188  INFO 9420 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@6de6faa6
+2018-05-15 11:51:01.439  INFO 9420 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-05-15 11:51:01.462  INFO 9420 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-05-15 11:51:01.463  INFO 9420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-05-15 11:51:01.463  INFO 9420 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-05-15 11:51:01.464  INFO 9420 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-05-15 11:51:01.464  INFO 9420 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-05-15 11:51:01.464  INFO 9420 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-05-15 11:51:01.464  INFO 9420 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-05-15 11:51:01.511  INFO 9420 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path ''
+2018-05-15 11:51:01.518  INFO 9420 --- [main] com.troywang.GringottsApplication        : Started GringottsApplication in 6.557 seconds (JVM running for 7.513)
+2018-05-15 11:51:01.521  INFO 9420 --- [main] o.s.b.a.b.JobLauncherCommandLineRunner   : Running default command line with: []
+2018-05-15 11:51:01.990  INFO 9420 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{}]
+2018-05-15 11:51:02.022  INFO 9420 --- [main] o.s.batch.core.job.SimpleStepHandler     : Step already complete or not restartable, so no action to execute: StepExecution: id=1, version=3, name=demoStep, status=COMPLETED, exitStatus=COMPLETED, readCount=0, filterCount=0, writeCount=0 readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=1, rollbackCount=0, exitDescription=
+2018-05-15 11:51:02.033  INFO 9420 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{}] and the following status: [COMPLETED]
+2018-05-15 11:54:24.679  INFO 9420 --- [http-nio-8089-exec-1] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
+
+java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:428) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:687) ~[tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790) [tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468) [tomcat-embed-core-8.5.31.jar:8.5.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-8.5.31.jar:8.5.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-8.5.31.jar:8.5.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
+
+2018-05-15 11:55:11.953  INFO 9420 --- [http-nio-8089-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-15 11:55:11.954  INFO 9420 --- [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-05-15 11:55:11.986  INFO 9420 --- [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2018-05-15 11:58:25.486  INFO 9420 --- [http-nio-8089-exec-3] c.t.web.controller.JobLaucherController  : [JobLauncher] launching job, jobName=demoJob, jobParams={jobName=demoJob, param=201805151158}
+2018-05-15 11:58:25.599  INFO 9420 --- [http-nio-8089-exec-3] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{jobName=demoJob, param=201805151158}]
+2018-05-15 11:58:25.652  INFO 9420 --- [http-nio-8089-exec-3] o.s.batch.core.job.SimpleStepHandler     : Executing step: [demoStep]
+2018-05-15 11:58:25.684  INFO 9420 --- [http-nio-8089-exec-3] com.troywang.biz.reader.EmptyReader      : [empty reader] calling empty reader.....
+2018-05-15 11:58:25.732  INFO 9420 --- [http-nio-8089-exec-3] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{jobName=demoJob, param=201805151158}] and the following status: [COMPLETED]
+2018-05-15 11:58:42.211  INFO 9420 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@29176cc1: startup date [Tue May 15 11:50:55 CST 2018]; root of context hierarchy
+2018-05-15 11:58:42.217  INFO 9420 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-05-15 11:58:42.218  INFO 9420 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-05-15 11:58:42.219  INFO 9420 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2018-05-15 11:58:42.219  INFO 9420 --- [Thread-3] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-05-15 11:58:42.220  INFO 9420 --- [Thread-3] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 0 subscriber(s).
+2018-05-15 11:58:42.220  INFO 9420 --- [Thread-3] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2018-05-15 11:58:42.221  INFO 9420 --- [Thread-3] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2018-05-15 11:58:42.221  INFO 9420 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-05-15 11:58:42.221  INFO 9420 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-05-15 11:58:42.222  INFO 9420 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-05-15 11:58:42.224  INFO 9420 --- [Thread-3] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2018-05-15 11:58:42.256  INFO 9420 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-05-15 12:05:00.827  INFO 9675 --- [main] com.troywang.GringottsApplication        : Starting GringottsApplication on BDSHYF000105497 with PID 9675 (/Users/wangzhijian02/Documents/Github/Gringotts/target/classes started by wangzhijian02 in /Users/wangzhijian02/Documents/Github/Gringotts)
+2018-05-15 12:05:00.832 DEBUG 9675 --- [main] com.troywang.GringottsApplication        : Running with Spring Boot v2.0.2.RELEASE, Spring v5.0.6.RELEASE
+2018-05-15 12:05:00.834  INFO 9675 --- [main] com.troywang.GringottsApplication        : No active profile set, falling back to default profiles: default
+2018-05-15 12:05:00.973  INFO 9675 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27ae2fd0: startup date [Tue May 15 12:05:00 CST 2018]; root of context hierarchy
+2018-05-15 12:05:02.549  WARN 9675 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.troywang]' package. Please check your configuration.
+2018-05-15 12:05:02.644  INFO 9675 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-05-15 12:05:02.752  INFO 9675 --- [main] o.s.i.config.IntegrationRegistrar        : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2018-05-15 12:05:03.160  INFO 9675 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2018-05-15 12:05:03.193  INFO 9675 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2018-05-15 12:05:03.562  INFO 9675 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e38eef46] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 12:05:03.638  INFO 9675 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration$$EnhancerBySpringCGLIB$$4e80aa75] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-05-15 12:05:04.011  INFO 9675 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8089 (http)
+2018-05-15 12:05:04.037  INFO 9675 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-05-15 12:05:04.037  INFO 9675 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-05-15 12:05:04.042  INFO 9675 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/wangzhijian02/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-05-15 12:05:04.129  INFO 9675 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-05-15 12:05:04.130  INFO 9675 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3158 ms
+2018-05-15 12:05:04.300  INFO 9675 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-05-15 12:05:04.307  INFO 9675 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-05-15 12:05:04.308  INFO 9675 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-05-15 12:05:04.309  INFO 9675 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-05-15 12:05:04.309  INFO 9675 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-05-15 12:05:04.370  INFO 9675 --- [main] o.s.j.d.DriverManagerDataSource          : Loaded JDBC driver: com.mysql.jdbc.Driver
+2018-05-15 12:05:04.636  INFO 9675 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 12:05:05.032  INFO 9675 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27ae2fd0: startup date [Tue May 15 12:05:00 CST 2018]; root of context hierarchy
+2018-05-15 12:05:05.185  INFO 9675 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/jobLauncher],methods=[GET],produces=[application/json]}" onto public com.troywang.base.model.BaseResponse com.troywang.web.controller.JobLaucherController.launchJob(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-05-15 12:05:05.194  INFO 9675 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-05-15 12:05:05.195  INFO 9675 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-05-15 12:05:05.297  INFO 9675 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 12:05:05.297  INFO 9675 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-15 12:05:06.768  INFO 9675 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2018-05-15 12:05:06.788  INFO 9675 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2018-05-15 12:05:06.817  INFO 9675 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [org/springframework/batch/core/schema-mysql.sql]
+2018-05-15 12:05:06.858  INFO 9675 --- [main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [org/springframework/batch/core/schema-mysql.sql] in 41 ms.
+2018-05-15 12:05:07.191  INFO 9675 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService  'taskScheduler'
+2018-05-15 12:05:07.366  INFO 9675 --- [main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-05-15 12:05:07.382  INFO 9675 --- [main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-05-15 12:05:07.382  INFO 9675 --- [main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-05-15 12:05:07.383  INFO 9675 --- [main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2018-05-15 12:05:07.384  INFO 9675 --- [main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2018-05-15 12:05:07.384  INFO 9675 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2018-05-15 12:05:07.384  INFO 9675 --- [main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-05-15 12:05:07.384  INFO 9675 --- [main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@4c447c09
+2018-05-15 12:05:07.647  INFO 9675 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-05-15 12:05:07.667  INFO 9675 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2018-05-15 12:05:07.668  INFO 9675 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-05-15 12:05:07.668  INFO 9675 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2018-05-15 12:05:07.668  INFO 9675 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started _org.springframework.integration.errorLogger
+2018-05-15 12:05:07.668  INFO 9675 --- [main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-05-15 12:05:07.669  INFO 9675 --- [main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2018-05-15 12:05:07.669  INFO 9675 --- [main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2018-05-15 12:05:07.723  INFO 9675 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8089 (http) with context path ''
+2018-05-15 12:05:07.728  INFO 9675 --- [main] com.troywang.GringottsApplication        : Started GringottsApplication in 7.832 seconds (JVM running for 9.041)
+2018-05-15 12:05:07.731  INFO 9675 --- [main] o.s.b.a.b.JobLauncherCommandLineRunner   : Running default command line with: []
+2018-05-15 12:05:08.111  INFO 9675 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{}]
+2018-05-15 12:05:08.141  INFO 9675 --- [main] o.s.batch.core.job.SimpleStepHandler     : Step already complete or not restartable, so no action to execute: StepExecution: id=1, version=3, name=demoStep, status=COMPLETED, exitStatus=COMPLETED, readCount=0, filterCount=0, writeCount=0 readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=1, rollbackCount=0, exitDescription=
+2018-05-15 12:05:08.152  INFO 9675 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{}] and the following status: [COMPLETED]
+2018-05-15 12:05:32.693  INFO 9675 --- [http-nio-8089-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-05-15 12:05:32.694  INFO 9675 --- [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-05-15 12:05:32.712  INFO 9675 --- [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-05-15 12:05:32.749  INFO 9675 --- [http-nio-8089-exec-1] c.t.web.controller.JobLaucherController  : [JobLauncher] launching job, jobName=demoJob, jobParams={jobName=demoJob, param=201805151205}
+2018-05-15 12:05:32.824  INFO 9675 --- [http-nio-8089-exec-1] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] launched with the following parameters: [{jobName=demoJob, param=201805151205}]
+2018-05-15 12:05:32.866  INFO 9675 --- [http-nio-8089-exec-1] o.s.batch.core.job.SimpleStepHandler     : Executing step: [demoStep]
+2018-05-15 12:05:32.889  INFO 9675 --- [http-nio-8089-exec-1] com.troywang.biz.reader.EmptyReader      : [empty reader] calling empty reader.....
+2018-05-15 12:05:32.923  INFO 9675 --- [http-nio-8089-exec-1] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=demoJob]] completed with the following parameters: [{jobName=demoJob, param=201805151205}] and the following status: [COMPLETED]
+2018-05-15 12:06:56.759  INFO 9675 --- [Thread-3] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@27ae2fd0: startup date [Tue May 15 12:05:00 CST 2018]; root of context hierarchy
+2018-05-15 12:06:56.762  INFO 9675 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2018-05-15 12:06:56.763  INFO 9675 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-05-15 12:06:56.763  INFO 9675 --- [Thread-3] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 0 subscriber(s).
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] o.s.i.endpoint.EventDrivenConsumer       : stopped _org.springframework.integration.errorLogger
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] o.s.s.quartz.SchedulerFactoryBean        : Shutting down Quartz Scheduler
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+2018-05-15 12:06:56.764  INFO 9675 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+2018-05-15 12:06:56.766  INFO 9675 --- [Thread-3] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+2018-05-15 12:06:56.767  INFO 9675 --- [Thread-3] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2018-05-15 12:06:56.787  INFO 9675 --- [Thread-3] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
