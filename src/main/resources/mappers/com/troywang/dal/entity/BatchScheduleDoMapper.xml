@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.troywang.dal.mapper.BatchScheduleDoMapper" >
+  <resultMap id="BaseResultMap" type="com.troywang.dal.entity.BatchScheduleDo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="enabled" property="enabled" jdbcType="TINYINT" />
+    <result column="config_id" property="configId" jdbcType="BIGINT" />
+    <result column="schedule_no" property="scheduleNo" jdbcType="VARCHAR" />
+    <result column="schedule_date" property="scheduleDate" jdbcType="VARCHAR" />
+    <result column="schedule_status" property="scheduleStatus" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="total_count" property="totalCount" jdbcType="BIGINT" />
+    <result column="excp_count" property="excpCount" jdbcType="BIGINT" />
+    <result column="extension" property="extension" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, enabled, config_id, schedule_no, schedule_date, schedule_status, memo, total_count, 
+    excp_count, extension, create_time, modify_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchScheduleDoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from batch_schedule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from batch_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from batch_schedule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <select id="selectByExampleWithPaging" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchScheduleDoExample" >
+    select
+    <include refid="Base_Column_List" />
+    from batch_schedule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    limit ${startIndex},${pageSize}
+  </select>
+  <delete id="deleteByExample" parameterType="com.troywang.dal.entity.BatchScheduleDoExample" >
+    delete from batch_schedule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.troywang.dal.entity.BatchScheduleDo" >
+    insert into batch_schedule (id, enabled, config_id, 
+      schedule_no, schedule_date, schedule_status, 
+      memo, total_count, excp_count, 
+      extension, create_time, modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{enabled,jdbcType=TINYINT}, #{configId,jdbcType=BIGINT}, 
+      #{scheduleNo,jdbcType=VARCHAR}, #{scheduleDate,jdbcType=VARCHAR}, #{scheduleStatus,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{totalCount,jdbcType=BIGINT}, #{excpCount,jdbcType=BIGINT}, 
+      #{extension,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.troywang.dal.entity.BatchScheduleDo" >
+    insert into batch_schedule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="enabled != null" >
+        enabled,
+      </if>
+      <if test="configId != null" >
+        config_id,
+      </if>
+      <if test="scheduleNo != null" >
+        schedule_no,
+      </if>
+      <if test="scheduleDate != null" >
+        schedule_date,
+      </if>
+      <if test="scheduleStatus != null" >
+        schedule_status,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="totalCount != null" >
+        total_count,
+      </if>
+      <if test="excpCount != null" >
+        excp_count,
+      </if>
+      <if test="extension != null" >
+        extension,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="configId != null" >
+        #{configId,jdbcType=BIGINT},
+      </if>
+      <if test="scheduleNo != null" >
+        #{scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleDate != null" >
+        #{scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleStatus != null" >
+        #{scheduleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null" >
+        #{totalCount,jdbcType=BIGINT},
+      </if>
+      <if test="excpCount != null" >
+        #{excpCount,jdbcType=BIGINT},
+      </if>
+      <if test="extension != null" >
+        #{extension,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.troywang.dal.entity.BatchScheduleDoExample" resultType="java.lang.Integer" >
+    select count(*) from batch_schedule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update batch_schedule
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.enabled != null" >
+        enabled = #{record.enabled,jdbcType=TINYINT},
+      </if>
+      <if test="record.configId != null" >
+        config_id = #{record.configId,jdbcType=BIGINT},
+      </if>
+      <if test="record.scheduleNo != null" >
+        schedule_no = #{record.scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scheduleDate != null" >
+        schedule_date = #{record.scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scheduleStatus != null" >
+        schedule_status = #{record.scheduleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        memo = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalCount != null" >
+        total_count = #{record.totalCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.excpCount != null" >
+        excp_count = #{record.excpCount,jdbcType=BIGINT},
+      </if>
+      <if test="record.extension != null" >
+        extension = #{record.extension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null" >
+        modify_time = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update batch_schedule
+    set id = #{record.id,jdbcType=BIGINT},
+      enabled = #{record.enabled,jdbcType=TINYINT},
+      config_id = #{record.configId,jdbcType=BIGINT},
+      schedule_no = #{record.scheduleNo,jdbcType=VARCHAR},
+      schedule_date = #{record.scheduleDate,jdbcType=VARCHAR},
+      schedule_status = #{record.scheduleStatus,jdbcType=VARCHAR},
+      memo = #{record.memo,jdbcType=VARCHAR},
+      total_count = #{record.totalCount,jdbcType=BIGINT},
+      excp_count = #{record.excpCount,jdbcType=BIGINT},
+      extension = #{record.extension,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.troywang.dal.entity.BatchScheduleDo" >
+    update batch_schedule
+    <set >
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="configId != null" >
+        config_id = #{configId,jdbcType=BIGINT},
+      </if>
+      <if test="scheduleNo != null" >
+        schedule_no = #{scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleDate != null" >
+        schedule_date = #{scheduleDate,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleStatus != null" >
+        schedule_status = #{scheduleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCount != null" >
+        total_count = #{totalCount,jdbcType=BIGINT},
+      </if>
+      <if test="excpCount != null" >
+        excp_count = #{excpCount,jdbcType=BIGINT},
+      </if>
+      <if test="extension != null" >
+        extension = #{extension,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.troywang.dal.entity.BatchScheduleDo" >
+    update batch_schedule
+    set enabled = #{enabled,jdbcType=TINYINT},
+      config_id = #{configId,jdbcType=BIGINT},
+      schedule_no = #{scheduleNo,jdbcType=VARCHAR},
+      schedule_date = #{scheduleDate,jdbcType=VARCHAR},
+      schedule_status = #{scheduleStatus,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      total_count = #{totalCount,jdbcType=BIGINT},
+      excp_count = #{excpCount,jdbcType=BIGINT},
+      extension = #{extension,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKeyForUpdate" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from batch_schedule
+    where id = #{id,jdbcType=BIGINT} for update 
+  </select>
+  <select id="selectByExampleForUpdate" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchScheduleDoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from batch_schedule
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    for update
+  </select>
+  <insert id="insertBatch" parameterType="com.troywang.dal.entity.BatchScheduleDo" >
+    insert into batch_schedule (id, enabled, config_id, 
+      schedule_no, schedule_date, schedule_status, 
+      memo, total_count, excp_count, 
+      extension, create_time, modify_time
+      )
+    values
+    <foreach item="index" separator="," collection="list" >
+      (#{index.id,jdbcType=BIGINT}, #{index.enabled,jdbcType=TINYINT}, #{index.configId,jdbcType=BIGINT}, 
+        #{index.scheduleNo,jdbcType=VARCHAR}, #{index.scheduleDate,jdbcType=VARCHAR}, #{index.scheduleStatus,jdbcType=VARCHAR}, 
+        #{index.memo,jdbcType=VARCHAR}, #{index.totalCount,jdbcType=BIGINT}, #{index.excpCount,jdbcType=BIGINT}, 
+        #{index.extension,jdbcType=VARCHAR}, #{index.createTime,jdbcType=TIMESTAMP}, #{index.modifyTime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+</mapper>

@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmptyProcessor implements ItemProcessor<Object, Object> {
 
-    /**
-     * logger
-     */
     private static final Logger logger = LoggerFactory.getLogger(EmptyProcessor.class);
 
     @Override
