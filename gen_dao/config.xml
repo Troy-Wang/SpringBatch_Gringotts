@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
     <properties resource="config.properties" />
-    <classPathEntry location="mysql-connector-java-5.1.26.jar" />
+    <classPathEntry location="mysql-connector-java-8.0.11.jar" />
 
     <context id="DB" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -27,7 +27,7 @@
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="${target.model.package}"
-            targetProject="../src/main/resources/META-INF/mappers">
+            targetProject="../src/main/resources/mappers">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
