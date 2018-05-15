@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.troywang")
 @MapperScan("com.troywang.dal.mapper")
 public class GringottsApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(GringottsApplication.class, args);
 	}

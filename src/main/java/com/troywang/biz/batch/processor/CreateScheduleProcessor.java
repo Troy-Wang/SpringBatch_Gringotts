@@ -23,7 +23,7 @@ public class CreateScheduleProcessor implements ItemProcessor<BatchFileConfigDo,
     @Override
     public BatchScheduleDo process(BatchFileConfigDo item) throws Exception {
         BatchScheduleDo request = new BatchScheduleDo();
-        String scheduleDate = DateUtil.format(DateUtil.addDays(item.getExpectTime(), 1), DateUtil.SHORT_FORMAT);
+        String scheduleDate = DateUtil.format(item.getExpectTime(), DateUtil.SHORT_FORMAT);
         request.setScheduleDate(scheduleDate);
         request.setScheduleNo(item.getDescription() + scheduleDate);
         request.setConfigId(item.getId());

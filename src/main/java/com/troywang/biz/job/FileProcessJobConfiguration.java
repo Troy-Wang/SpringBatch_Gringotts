@@ -12,10 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.troywang.biz.batch.processor.EmptyProcessor;
+import com.troywang.biz.batch.processor.CreateScheduleProcessor;
 import com.troywang.biz.batch.tasklet.CtxInitTasklet;
-import com.troywang.biz.batch.writer.EmptyWriter;
+import com.troywang.biz.batch.writer.ScheduleCreateWriter;
 import com.troywang.dal.entity.BatchFileConfigDo;
+import com.troywang.dal.entity.BatchScheduleDo;
 
 /**
  * Created by troywang on 2018/5/15.
@@ -31,7 +32,10 @@ public class FileProcessJobConfiguration {
     private CtxInitTasklet ctxInitTasklet;
 
     @Autowired
-    private EmptyProcessor emptyProcessor;
+    private CreateScheduleProcessor createScheduleProcessor;
+
+    @Autowired
+    private ScheduleCreateWriter scheduleCreateWriter;
 
     /**
      * step级别的bean都在本configuration文件中
@@ -56,8 +60,8 @@ public class FileProcessJobConfiguration {
     @Bean
     public Step createScheduleStep(StepBuilderFactory stepBuilderFactory, ItemReader<BatchFileConfigDo>
             fileConfigReader) {
-        return stepBuilderFactory.get("createScheduleStep").<BatchFileConfigDo, Object>chunk(2)
-                .reader(fileConfigReader).processor(emptyProcessor).writer(new EmptyWriter()).build();
+        return stepBuilderFactory.get("createScheduleStep").<BatchFileConfigDo, BatchScheduleDo>chunk(2)
+                .reader(fileConfigReader).processor(createScheduleProcessor).writer(scheduleCreateWriter).build();
     }
 
 }

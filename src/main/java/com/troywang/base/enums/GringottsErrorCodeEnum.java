@@ -10,7 +10,9 @@ public enum GringottsErrorCodeEnum {
 
     FAIL("000001", "FAIL"),
 
-    JOB_LAUNCH_FAIL("000002", "Job Launch Failed");
+    JOB_LAUNCH_FAIL("000002", "Job Launch Failed"),
+
+    DATABASE_OPERATION_ERROR("000003", "Database Operation Failed");
 
     private String code;
     private String message;
