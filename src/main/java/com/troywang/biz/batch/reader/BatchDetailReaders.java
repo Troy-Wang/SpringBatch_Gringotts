@@ -49,7 +49,7 @@ public class BatchDetailReaders {
             Map<String, Order> sortKeyMap = new HashMap<String, Order>();
             sortKeyMap.put("id", Order.ASCENDING);
 
-            String whereClause = String.format("where itemId='%s'", itemId);
+            String whereClause = String.format("where item_id='%s'", itemId);
 
             SqlPagingQueryProviderFactoryBean policyInfoQueryProvider = new SqlPagingQueryProviderFactoryBean();
             policyInfoQueryProvider.setDataSource(dataSource);

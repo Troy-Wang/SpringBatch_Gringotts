@@ -107,12 +107,18 @@ public class FileProcessJobConfiguration {
 
     @Bean
     public Step detailExportStep(StepBuilderFactory stepBuilderFactory, ItemReader<BatchDetailDo> batchDetailReader,
-                                 ItemWriter<BatchDetailExportModel> batchDetailExportWriter) {
+                                 ItemWriter<BatchDetailExportModel> batchDetailExportWriter,
+                                 ExportStepExecutionListener exportStepExecutionListener) {
         return stepBuilderFactory.get("detailExportStep").<BatchDetailDo, BatchDetailExportModel>chunk(1)
                 .faultTolerant().skip(GringottsSkippableException.class).skipLimit(3)
                 .retry(GringottsRetryableException.class).retryLimit(3).reader(batchDetailReader)
                 .processor(batchDetailExportProcessor).writer(batchDetailExportWriter)
-                .listener(new ExportStepExecutionListener()).build();
+                .listener(exportStepExecutionListener).build();
+    }
+
+    @Bean
+    public ExportStepExecutionListener exportStepExecutionListener() {
+        return new ExportStepExecutionListener();
     }
 
 }

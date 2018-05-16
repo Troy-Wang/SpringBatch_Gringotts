@@ -1,5 +1,11 @@
 package com.troywang.biz.batch.writer;
 
+import java.io.IOException;
+import java.io.Writer;
+
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.item.file.FlatFileFooterCallback;
+import org.springframework.batch.item.file.FlatFileHeaderCallback;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.ResourceAwareItemWriterItemStream;
 import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
@@ -12,7 +18,6 @@ import org.springframework.core.io.FileSystemResource;
 
 import com.troywang.base.aggregator.FormatterByteLineAggregator;
 import com.troywang.base.util.ClassUtil;
-import com.troywang.biz.batch.callback.ExportFooterCallback;
 import com.troywang.biz.model.BatchDetailExportModel;
 
 /**
@@ -31,12 +36,34 @@ public class FileWriters {
         writer.setLineAggregator(batchDetailExportAggregator());
         writer.setShouldDeleteIfEmpty(false);
         writer.setShouldDeleteIfExists(true);
-        writer.setFooterCallback(new ExportFooterCallback());
+        writer.setHeaderCallback(exportHeaderCallback());
+        writer.setFooterCallback(exportFooterCallback(null));
         return writer;
     }
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
+    public FlatFileHeaderCallback exportHeaderCallback() {
+        return new FlatFileHeaderCallback() {
+            @Override
+            public void writeHeader(Writer writer) throws IOException {
+                writer.write("START");
+            }
+        };
+    }
+
+    @Bean
+    @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
+    public FlatFileFooterCallback exportFooterCallback(@Value("#{stepExecution}") final StepExecution context) {
+        return new FlatFileFooterCallback() {
+            @Override
+            public void writeFooter(Writer writer) throws IOException {
+                writer.append("count: ").append(String.valueOf(context.getWriteCount()));
+            }
+        };
+    }
+
+    @Bean
     public FormatterByteLineAggregator<BatchDetailExportModel> batchDetailExportAggregator() {
         BeanWrapperFieldExtractor<BatchDetailExportModel> fieldExtractor =
                 new BeanWrapperFieldExtractor<BatchDetailExportModel>();
@@ -46,7 +73,8 @@ public class FileWriters {
                 new FormatterByteLineAggregator<BatchDetailExportModel>();
         aggregator.setEncoding("utf-8");
         aggregator.setFieldExtractor(fieldExtractor);
-        aggregator.setFormat("%-32s%-32s%-2s%-32s%");
+        aggregator.setFormat("%-32s%-32s%-2s%-32s");
+        aggregator.setEncoding("utf8");
         return aggregator;
     }
 

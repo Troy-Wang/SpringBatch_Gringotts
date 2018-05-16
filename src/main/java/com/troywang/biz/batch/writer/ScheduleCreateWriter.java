@@ -40,7 +40,7 @@ public class ScheduleCreateWriter implements ItemWriter<BatchScheduleDo> {
             batchScheduleDo.setConfigId(request.getId());
             batchScheduleDo.setScheduleNo(request.getScheduleNo());
             batchScheduleDo.setScheduleDate(request.getScheduleDate());
-            batchScheduleDo.setExtension("");
+            batchScheduleDo.setExtension(request.getExtension());
             batchScheduleDo.setMemo("");
             handleRet(batchScheduleDao.insertSchedule(batchScheduleDo));
 
