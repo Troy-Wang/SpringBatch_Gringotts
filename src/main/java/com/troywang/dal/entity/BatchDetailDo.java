@@ -13,6 +13,8 @@ public class BatchDetailDo {
 
     private String recordType;
 
+    private String itemId;
+
     private String userId;
 
     private String recordState;
@@ -63,6 +65,14 @@ public class BatchDetailDo {
 
     public void setRecordType(String recordType) {
         this.recordType = recordType == null ? null : recordType.trim();
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId == null ? null : itemId.trim();
     }
 
     public String getUserId() {

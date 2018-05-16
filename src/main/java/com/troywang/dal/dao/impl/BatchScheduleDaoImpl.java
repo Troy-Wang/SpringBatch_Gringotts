@@ -32,6 +32,16 @@ public class BatchScheduleDaoImpl implements BatchScheduleDao {
     }
 
     @Override
+    public boolean updateScheduleStatus(String scheduleNo, String toState, String memo) {
+        BatchScheduleDo record = new BatchScheduleDo();
+        record.setScheduleStatus(toState);
+        record.setMemo(memo);
+        BatchScheduleCondition condition = new BatchScheduleCondition();
+        condition.setScheduleNo(scheduleNo);
+        return 1 <= batchScheduleDoMapper.updateByExampleSelective(record, prepareExample(condition));
+    }
+
+    @Override
     public boolean updateByCondition(BatchScheduleDo batchScheduleDo, BatchScheduleCondition condition) {
         return false;
     }

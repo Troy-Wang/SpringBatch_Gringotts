@@ -14,5 +14,7 @@ public interface BatchScheduleDao {
 
     List<BatchScheduleDo> queryByCondition(BatchScheduleCondition condition);
 
+    boolean updateScheduleStatus(String scheduleNo, String toState, String memo);
+
     boolean updateByCondition(BatchScheduleDo batchScheduleDo, BatchScheduleCondition condition);
 }

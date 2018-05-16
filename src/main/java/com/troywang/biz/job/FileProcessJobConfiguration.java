@@ -19,10 +19,12 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 import com.troywang.base.exception.GringottsRetryableException;
 import com.troywang.base.exception.GringottsSkippableException;
+import com.troywang.biz.batch.listener.ExportStepExecutionListener;
 import com.troywang.biz.batch.partitioner.FileProcessPartitioner;
 import com.troywang.biz.batch.processor.BatchDetailExportProcessor;
 import com.troywang.biz.batch.processor.CreateScheduleProcessor;
 import com.troywang.biz.batch.tasklet.CtxInitTasklet;
+import com.troywang.biz.batch.validator.JobParamValidator;
 import com.troywang.biz.batch.writer.ScheduleCreateWriter;
 import com.troywang.biz.model.BatchDetailExportModel;
 import com.troywang.dal.entity.BatchDetailDo;
@@ -51,15 +53,20 @@ public class FileProcessJobConfiguration {
     @Autowired
     private BatchDetailExportProcessor batchDetailExportProcessor;
 
+    @Autowired
+    private JobParamValidator jobParamValidator;
+
     /**
      * step级别的bean都在本configuration文件中
      */
     @Bean
     public Job fileProcessJob(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory, Step
-            createScheduleStep) {
+            createScheduleStep, Step fileExportPartitionStep) {
         // Step1. 初始化上下文
         Step fileProcessCtxInitStep = stepBuilderFactory.get("fileProcessCtxInitStep").tasklet(ctxInitTasklet).build();
-        return jobBuilderFactory.get("fileProcessJob").start(fileProcessCtxInitStep).next(createScheduleStep).build();
+
+        return jobBuilderFactory.get("fileProcessJob").validator(jobParamValidator).start(fileProcessCtxInitStep).next
+                (createScheduleStep).next(fileExportPartitionStep).build();
     }
 
     /**
@@ -72,8 +79,9 @@ public class FileProcessJobConfiguration {
     @Bean
     public Step createScheduleStep(StepBuilderFactory stepBuilderFactory, ItemReader<BatchFileConfigDo>
             fileConfigReader) {
-        return stepBuilderFactory.get("createScheduleStep").<BatchFileConfigDo, BatchScheduleDo>chunk(2)
-                .reader(fileConfigReader).processor(createScheduleProcessor).writer(scheduleCreateWriter).build();
+        return stepBuilderFactory.get("createScheduleStep").<BatchFileConfigDo, BatchScheduleDo>chunk(2).faultTolerant()
+                .retry(GringottsRetryableException.class).retryLimit(3).reader(fileConfigReader)
+                .processor(createScheduleProcessor).writer(scheduleCreateWriter).build();
     }
 
     /**
@@ -103,7 +111,8 @@ public class FileProcessJobConfiguration {
         return stepBuilderFactory.get("detailExportStep").<BatchDetailDo, BatchDetailExportModel>chunk(1)
                 .faultTolerant().skip(GringottsSkippableException.class).skipLimit(3)
                 .retry(GringottsRetryableException.class).retryLimit(3).reader(batchDetailReader)
-                .processor(batchDetailExportProcessor).writer(batchDetailExportWriter).build();
+                .processor(batchDetailExportProcessor).writer(batchDetailExportWriter)
+                .listener(new ExportStepExecutionListener()).build();
     }
 
 }

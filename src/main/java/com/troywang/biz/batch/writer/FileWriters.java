@@ -14,7 +14,6 @@ import com.troywang.base.aggregator.FormatterByteLineAggregator;
 import com.troywang.base.util.ClassUtil;
 import com.troywang.biz.batch.callback.ExportFooterCallback;
 import com.troywang.biz.model.BatchDetailExportModel;
-import com.troywang.biz.model.JobContextModel;
 
 /**
  * Created by troywang on 2018/5/16.
@@ -24,14 +23,10 @@ public class FileWriters {
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
-    public ResourceAwareItemWriterItemStream<BatchDetailExportModel> batchDetailExportWriter(@Value
-                                                                                                     ("#{jobExecutionContext['fileConfig']}")
-                                                                                                     JobContextModel
-                                                                                                     ctx) {
+    public ResourceAwareItemWriterItemStream<BatchDetailExportModel> batchDetailExportWriter(
+            @Value("#{stepExecutionContext['file']}") String file) {
         FlatFileItemWriter<BatchDetailExportModel> writer = new FlatFileItemWriter<BatchDetailExportModel>();
-        //        writer.setResource(new FileSystemResource(ctx.getLocalDir().concat(ctx.getLocalFileName()).concat("
-        // .txt")));
-        writer.setResource(new FileSystemResource("/Users/wangzhijian02/test.txt"));
+        writer.setResource(new FileSystemResource(file));
         writer.setEncoding("utf-8");
         writer.setLineAggregator(batchDetailExportAggregator());
         writer.setShouldDeleteIfEmpty(false);

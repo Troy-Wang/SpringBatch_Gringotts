@@ -7,6 +7,7 @@
     <result column="schedule_no" property="scheduleNo" jdbcType="VARCHAR" />
     <result column="record_no" property="recordNo" jdbcType="VARCHAR" />
     <result column="record_type" property="recordType" jdbcType="VARCHAR" />
+    <result column="item_id" property="itemId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="record_state" property="recordState" jdbcType="VARCHAR" />
     <result column="extension" property="extension" jdbcType="VARCHAR" />
@@ -73,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, enabled, schedule_no, record_no, record_type, user_id, record_state, extension, 
-    memo, create_time, modify_time
+    id, enabled, schedule_no, record_no, record_type, item_id, user_id, record_state, 
+    extension, memo, create_time, modify_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchDetailDoExample" >
     select
@@ -120,13 +121,15 @@
   </delete>
   <insert id="insert" parameterType="com.troywang.dal.entity.BatchDetailDo" >
     insert into batch_detail (id, enabled, schedule_no, 
-      record_no, record_type, user_id, 
-      record_state, extension, memo, 
-      create_time, modify_time)
+      record_no, record_type, item_id, 
+      user_id, record_state, extension, 
+      memo, create_time, modify_time
+      )
     values (#{id,jdbcType=BIGINT}, #{enabled,jdbcType=TINYINT}, #{scheduleNo,jdbcType=VARCHAR}, 
-      #{recordNo,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{recordState,jdbcType=VARCHAR}, #{extension,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
+      #{recordNo,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR}, #{recordState,jdbcType=VARCHAR}, #{extension,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.troywang.dal.entity.BatchDetailDo" >
     insert into batch_detail
@@ -145,6 +148,9 @@
       </if>
       <if test="recordType != null" >
         record_type,
+      </if>
+      <if test="itemId != null" >
+        item_id,
       </if>
       <if test="userId != null" >
         user_id,
@@ -180,6 +186,9 @@
       </if>
       <if test="recordType != null" >
         #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        #{itemId,jdbcType=VARCHAR},
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=VARCHAR},
@@ -225,6 +234,9 @@
       <if test="record.recordType != null" >
         record_type = #{record.recordType,jdbcType=VARCHAR},
       </if>
+      <if test="record.itemId != null" >
+        item_id = #{record.itemId,jdbcType=VARCHAR},
+      </if>
       <if test="record.userId != null" >
         user_id = #{record.userId,jdbcType=VARCHAR},
       </if>
@@ -255,6 +267,7 @@
       schedule_no = #{record.scheduleNo,jdbcType=VARCHAR},
       record_no = #{record.recordNo,jdbcType=VARCHAR},
       record_type = #{record.recordType,jdbcType=VARCHAR},
+      item_id = #{record.itemId,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=VARCHAR},
       record_state = #{record.recordState,jdbcType=VARCHAR},
       extension = #{record.extension,jdbcType=VARCHAR},
@@ -279,6 +292,9 @@
       </if>
       <if test="recordType != null" >
         record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null" >
+        item_id = #{itemId,jdbcType=VARCHAR},
       </if>
       <if test="userId != null" >
         user_id = #{userId,jdbcType=VARCHAR},
@@ -307,6 +323,7 @@
       schedule_no = #{scheduleNo,jdbcType=VARCHAR},
       record_no = #{recordNo,jdbcType=VARCHAR},
       record_type = #{recordType,jdbcType=VARCHAR},
+      item_id = #{itemId,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=VARCHAR},
       record_state = #{recordState,jdbcType=VARCHAR},
       extension = #{extension,jdbcType=VARCHAR},
@@ -338,15 +355,17 @@
   </select>
   <insert id="insertBatch" parameterType="com.troywang.dal.entity.BatchDetailDo" >
     insert into batch_detail (id, enabled, schedule_no, 
-      record_no, record_type, user_id, 
-      record_state, extension, memo, 
-      create_time, modify_time)
+      record_no, record_type, item_id, 
+      user_id, record_state, extension, 
+      memo, create_time, modify_time
+      )
     values
     <foreach item="index" separator="," collection="list" >
       (#{index.id,jdbcType=BIGINT}, #{index.enabled,jdbcType=TINYINT}, #{index.scheduleNo,jdbcType=VARCHAR}, 
-        #{index.recordNo,jdbcType=VARCHAR}, #{index.recordType,jdbcType=VARCHAR}, #{index.userId,jdbcType=VARCHAR}, 
-        #{index.recordState,jdbcType=VARCHAR}, #{index.extension,jdbcType=VARCHAR}, #{index.memo,jdbcType=VARCHAR}, 
-        #{index.createTime,jdbcType=TIMESTAMP}, #{index.modifyTime,jdbcType=TIMESTAMP})
+        #{index.recordNo,jdbcType=VARCHAR}, #{index.recordType,jdbcType=VARCHAR}, #{index.itemId,jdbcType=VARCHAR}, 
+        #{index.userId,jdbcType=VARCHAR}, #{index.recordState,jdbcType=VARCHAR}, #{index.extension,jdbcType=VARCHAR}, 
+        #{index.memo,jdbcType=VARCHAR}, #{index.createTime,jdbcType=TIMESTAMP}, #{index.modifyTime,jdbcType=TIMESTAMP}
+        )
     </foreach>
   </insert>
 </mapper>

@@ -7,7 +7,17 @@ import java.util.List;
  */
 public class BatchScheduleCondition {
 
+    private String scheduleNo;
+
     private List<String> scheduleStatus;
+
+    public String getScheduleNo() {
+        return scheduleNo;
+    }
+
+    public void setScheduleNo(String scheduleNo) {
+        this.scheduleNo = scheduleNo;
+    }
 
     public List<String> getScheduleStatus() {
         return scheduleStatus;
@@ -17,10 +27,4 @@ public class BatchScheduleCondition {
         this.scheduleStatus = scheduleStatus;
     }
 
-    @Override
-    public String toString() {
-        return "BatchScheduleCondition{" +
-                "scheduleStatus=" + scheduleStatus +
-                '}';
-    }
 }

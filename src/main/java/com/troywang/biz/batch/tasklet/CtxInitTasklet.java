@@ -22,6 +22,7 @@ public class CtxInitTasklet implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+        logger.info("[ctx init tasklet] start initializing job context");
         JobContextModel ctxModel = new JobContextModel();
         ctxModel.setFoo("foo");
         chunkContext.getStepContext().getStepExecution().getJobExecution().getExecutionContext()

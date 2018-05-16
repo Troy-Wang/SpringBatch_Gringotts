@@ -7,6 +7,8 @@ public enum ScheduleStatusEnum {
 
     INITIAL("Initial", "初始化"),
 
+    ERROR("Error", "有错误"),
+
     COMPLETE("Complete", "完成"),;
 
     private String status;

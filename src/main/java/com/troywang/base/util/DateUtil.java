@@ -49,8 +49,6 @@ public class DateUtil {
      * @param s
      *
      * @return
-     *
-     * @Author wangzhijian02
      */
     public static boolean isValidDate(String s, String format) {
         try {

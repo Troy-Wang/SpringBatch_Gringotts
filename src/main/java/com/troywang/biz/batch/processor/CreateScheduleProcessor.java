@@ -1,6 +1,8 @@
 package com.troywang.biz.batch.processor;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +10,7 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
 import com.troywang.base.util.DateUtil;
+import com.troywang.base.util.JsonUtil;
 import com.troywang.biz.enums.ScheduleStatusEnum;
 import com.troywang.dal.entity.BatchFileConfigDo;
 import com.troywang.dal.entity.BatchScheduleDo;
@@ -32,7 +35,12 @@ public class CreateScheduleProcessor implements ItemProcessor<BatchFileConfigDo,
         request.setScheduleStatus(ScheduleStatusEnum.INITIAL.getStatus());
         request.setCreateTime(new Date());
         request.setModifyTime(new Date());
-        logger.info("[batch schedule create] request={}", request);
+        Map<String, String> extensionMap = new HashMap<String, String>();
+        String filePath = item.getLocalFilePath().replace("YYYYMMDD", scheduleDate);
+        extensionMap.put("filePath", filePath);
+        extensionMap.put("itemId", item.getItemId());
+        request.setExtension(JsonUtil.writeMap2JsonString(extensionMap));
+        logger.info("[create schedule processor] request={}", request);
         return request;
     }
 }

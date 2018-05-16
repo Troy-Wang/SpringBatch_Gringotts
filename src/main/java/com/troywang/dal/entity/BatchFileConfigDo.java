@@ -7,7 +7,7 @@ public class BatchFileConfigDo {
 
     private Byte enabled;
 
-    private String type;
+    private String itemId;
 
     private String scheduleFreq;
 
@@ -41,12 +41,12 @@ public class BatchFileConfigDo {
         this.enabled = enabled;
     }
 
-    public String getType() {
-        return type;
+    public String getItemId() {
+        return itemId;
     }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+    public void setItemId(String itemId) {
+        this.itemId = itemId == null ? null : itemId.trim();
     }
 
     public String getScheduleFreq() {

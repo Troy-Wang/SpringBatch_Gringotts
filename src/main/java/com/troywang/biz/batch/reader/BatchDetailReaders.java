@@ -1,6 +1,5 @@
 package com.troywang.biz.batch.reader;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +19,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
-import com.troywang.base.util.DateUtil;
-import com.troywang.biz.model.JobContextModel;
 import com.troywang.dal.entity.BatchDetailDo;
 
 /**
@@ -46,14 +43,13 @@ public class BatchDetailReaders {
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
-    public PagingQueryProvider batchDetailQueryProvider(@Value("#{jobExecutionContext['jobCtx']}") JobContextModel
-                                                                ctx, DataSource dataSource) {
+    public PagingQueryProvider batchDetailQueryProvider(@Value("#{stepExecutionContext['itemId']}") String itemId,
+                                                        DataSource dataSource) {
         try {
             Map<String, Order> sortKeyMap = new HashMap<String, Order>();
             sortKeyMap.put("id", Order.ASCENDING);
 
-            String whereClause =
-                    String.format("where create_time<='%s'", DateUtil.format(new Date(), DateUtil.LONG_WEB_FORMAT));
+            String whereClause = String.format("where itemId='%s'", itemId);
 
             SqlPagingQueryProviderFactoryBean policyInfoQueryProvider = new SqlPagingQueryProviderFactoryBean();
             policyInfoQueryProvider.setDataSource(dataSource);

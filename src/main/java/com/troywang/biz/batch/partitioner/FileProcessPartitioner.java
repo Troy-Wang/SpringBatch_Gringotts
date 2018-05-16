@@ -41,8 +41,10 @@ public class FileProcessPartitioner implements Partitioner {
         int i = 0;
         for (BatchScheduleDo batchScheduleDo : batchScheduleDos) {
             ExecutionContext context = new ExecutionContext();
-            String file = JsonUtil.readJson2Map(batchScheduleDo.getExtension()).get("filePath").concat(".txt");
+            String file = JsonUtil.readJson2Map(batchScheduleDo.getExtension()).get("filePath");
+            String itemId = JsonUtil.readJson2Map(batchScheduleDo.getExtension()).get("itemId");
             context.putString("file", file);
+            context.putString("itemId", itemId);
             context.putString("scheduleNo", batchScheduleDo.getScheduleNo());
             map.put("partition" + i, context);
             i++;
