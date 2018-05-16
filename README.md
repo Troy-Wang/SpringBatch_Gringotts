@@ -126,12 +126,14 @@ server.servlet.context-path=/
 
 ## FileProcessJob
 
-### datasource配置
+#### datasource配置
 见 BatchDbConfiguration
 
-### Job构成
+#### Job构成
 
-### Let's get started
+![flow](https://github.com/Troy-Wang/Gringotts/blob/master/imgs/flow.jpg)
+
+#### Let's get started
 
 ```bash
 curl -X GET "http://localhost:8089/jobLauncher?jobName=demoJob&date=20180405"
