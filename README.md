@@ -1,5 +1,3 @@
 
 
-```sql
-create database gringotts_db CHARACTER SET 'utf8';
-```
+```sql create database gringotts_db CHARACTER SET 'utf8'; ```
