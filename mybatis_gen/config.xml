@@ -40,5 +40,6 @@
         <!-- add your table below -->
         <table tableName="batch_file_config" domainObjectName="BatchFileConfigDo" />
         <table tableName="batch_schedule" domainObjectName="BatchScheduleDo" />
+        <table tableName="batch_detail" domainObjectName="BatchDetailDo" />
     </context>
 </generatorConfiguration>

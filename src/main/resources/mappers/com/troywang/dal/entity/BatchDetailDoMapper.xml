@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.troywang.dal.mapper.BatchDetailDoMapper" >
+  <resultMap id="BaseResultMap" type="com.troywang.dal.entity.BatchDetailDo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="enabled" property="enabled" jdbcType="TINYINT" />
+    <result column="schedule_no" property="scheduleNo" jdbcType="VARCHAR" />
+    <result column="record_no" property="recordNo" jdbcType="VARCHAR" />
+    <result column="record_type" property="recordType" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="record_state" property="recordState" jdbcType="VARCHAR" />
+    <result column="extension" property="extension" jdbcType="VARCHAR" />
+    <result column="memo" property="memo" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, enabled, schedule_no, record_no, record_type, user_id, record_state, extension, 
+    memo, create_time, modify_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchDetailDoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from batch_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from batch_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from batch_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <select id="selectByExampleWithPaging" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchDetailDoExample" >
+    select
+    <include refid="Base_Column_List" />
+    from batch_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    limit ${startIndex},${pageSize}
+  </select>
+  <delete id="deleteByExample" parameterType="com.troywang.dal.entity.BatchDetailDoExample" >
+    delete from batch_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.troywang.dal.entity.BatchDetailDo" >
+    insert into batch_detail (id, enabled, schedule_no, 
+      record_no, record_type, user_id, 
+      record_state, extension, memo, 
+      create_time, modify_time)
+    values (#{id,jdbcType=BIGINT}, #{enabled,jdbcType=TINYINT}, #{scheduleNo,jdbcType=VARCHAR}, 
+      #{recordNo,jdbcType=VARCHAR}, #{recordType,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{recordState,jdbcType=VARCHAR}, #{extension,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.troywang.dal.entity.BatchDetailDo" >
+    insert into batch_detail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="enabled != null" >
+        enabled,
+      </if>
+      <if test="scheduleNo != null" >
+        schedule_no,
+      </if>
+      <if test="recordNo != null" >
+        record_no,
+      </if>
+      <if test="recordType != null" >
+        record_type,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="recordState != null" >
+        record_state,
+      </if>
+      <if test="extension != null" >
+        extension,
+      </if>
+      <if test="memo != null" >
+        memo,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="scheduleNo != null" >
+        #{scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordNo != null" >
+        #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null" >
+        #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordState != null" >
+        #{recordState,jdbcType=VARCHAR},
+      </if>
+      <if test="extension != null" >
+        #{extension,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.troywang.dal.entity.BatchDetailDoExample" resultType="java.lang.Integer" >
+    select count(*) from batch_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update batch_detail
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.enabled != null" >
+        enabled = #{record.enabled,jdbcType=TINYINT},
+      </if>
+      <if test="record.scheduleNo != null" >
+        schedule_no = #{record.scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordNo != null" >
+        record_no = #{record.recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordType != null" >
+        record_type = #{record.recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordState != null" >
+        record_state = #{record.recordState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extension != null" >
+        extension = #{record.extension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        memo = #{record.memo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null" >
+        modify_time = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update batch_detail
+    set id = #{record.id,jdbcType=BIGINT},
+      enabled = #{record.enabled,jdbcType=TINYINT},
+      schedule_no = #{record.scheduleNo,jdbcType=VARCHAR},
+      record_no = #{record.recordNo,jdbcType=VARCHAR},
+      record_type = #{record.recordType,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      record_state = #{record.recordState,jdbcType=VARCHAR},
+      extension = #{record.extension,jdbcType=VARCHAR},
+      memo = #{record.memo,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.troywang.dal.entity.BatchDetailDo" >
+    update batch_detail
+    <set >
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=TINYINT},
+      </if>
+      <if test="scheduleNo != null" >
+        schedule_no = #{scheduleNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordNo != null" >
+        record_no = #{recordNo,jdbcType=VARCHAR},
+      </if>
+      <if test="recordType != null" >
+        record_type = #{recordType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="recordState != null" >
+        record_state = #{recordState,jdbcType=VARCHAR},
+      </if>
+      <if test="extension != null" >
+        extension = #{extension,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.troywang.dal.entity.BatchDetailDo" >
+    update batch_detail
+    set enabled = #{enabled,jdbcType=TINYINT},
+      schedule_no = #{scheduleNo,jdbcType=VARCHAR},
+      record_no = #{recordNo,jdbcType=VARCHAR},
+      record_type = #{recordType,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      record_state = #{recordState,jdbcType=VARCHAR},
+      extension = #{extension,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKeyForUpdate" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from batch_detail
+    where id = #{id,jdbcType=BIGINT} for update 
+  </select>
+  <select id="selectByExampleForUpdate" resultMap="BaseResultMap" parameterType="com.troywang.dal.entity.BatchDetailDoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from batch_detail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    for update
+  </select>
+  <insert id="insertBatch" parameterType="com.troywang.dal.entity.BatchDetailDo" >
+    insert into batch_detail (id, enabled, schedule_no, 
+      record_no, record_type, user_id, 
+      record_state, extension, memo, 
+      create_time, modify_time)
+    values
+    <foreach item="index" separator="," collection="list" >
+      (#{index.id,jdbcType=BIGINT}, #{index.enabled,jdbcType=TINYINT}, #{index.scheduleNo,jdbcType=VARCHAR}, 
+        #{index.recordNo,jdbcType=VARCHAR}, #{index.recordType,jdbcType=VARCHAR}, #{index.userId,jdbcType=VARCHAR}, 
+        #{index.recordState,jdbcType=VARCHAR}, #{index.extension,jdbcType=VARCHAR}, #{index.memo,jdbcType=VARCHAR}, 
+        #{index.createTime,jdbcType=TIMESTAMP}, #{index.modifyTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+</mapper>

@@ -13,6 +13,7 @@ import com.troywang.dal.entity.BatchFileConfigDo;
 import com.troywang.dal.entity.BatchScheduleDo;
 
 /**
+ * create a new schedule record
  * Created by troywang on 2018/5/15.
  */
 @Component

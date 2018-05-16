@@ -22,47 +22,48 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import com.troywang.base.util.DateUtil;
 import com.troywang.biz.model.JobContextModel;
-import com.troywang.dal.entity.BatchFileConfigDo;
+import com.troywang.dal.entity.BatchDetailDo;
 
 /**
- * Created by troywang on 2018/5/15.
+ * readers for reading batch details
+ * Created by troywang on 2018/5/16.
  */
 @Configuration
-public class FileConfigReaders {
+public class BatchDetailReaders {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileConfigReaders.class);
+    private static final Logger logger = LoggerFactory.getLogger(BatchDetailReaders.class);
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
-    public ItemReader<BatchFileConfigDo> fileConfigReader(DataSource dataSource) {
-        JdbcPagingItemReader<BatchFileConfigDo> fileConfigReader = new JdbcPagingItemReader<BatchFileConfigDo>();
-        fileConfigReader.setDataSource(dataSource);
-        fileConfigReader.setQueryProvider(fileConfigQueryProvider(null, null));
-        fileConfigReader.setRowMapper(new BeanPropertyRowMapper<BatchFileConfigDo>(BatchFileConfigDo.class));
-        fileConfigReader.setPageSize(10);
-        return fileConfigReader;
+    public ItemReader<BatchDetailDo> batchDetailReader(DataSource dataSource) {
+        JdbcPagingItemReader<BatchDetailDo> batchDetailReader = new JdbcPagingItemReader<BatchDetailDo>();
+        batchDetailReader.setDataSource(dataSource);
+        batchDetailReader.setQueryProvider(batchDetailQueryProvider(null, null));
+        batchDetailReader.setRowMapper(new BeanPropertyRowMapper<BatchDetailDo>(BatchDetailDo.class));
+        batchDetailReader.setPageSize(10);
+        return batchDetailReader;
     }
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
-    public PagingQueryProvider fileConfigQueryProvider(@Value("#{jobExecutionContext['jobCtx']}") JobContextModel
-                                                               ctx, DataSource dataSource) {
+    public PagingQueryProvider batchDetailQueryProvider(@Value("#{jobExecutionContext['jobCtx']}") JobContextModel
+                                                                ctx, DataSource dataSource) {
         try {
             Map<String, Order> sortKeyMap = new HashMap<String, Order>();
             sortKeyMap.put("id", Order.ASCENDING);
 
             String whereClause =
-                    String.format("where expect_time<='%s'", DateUtil.format(new Date(), DateUtil.LONG_WEB_FORMAT));
+                    String.format("where create_time<='%s'", DateUtil.format(new Date(), DateUtil.LONG_WEB_FORMAT));
 
             SqlPagingQueryProviderFactoryBean policyInfoQueryProvider = new SqlPagingQueryProviderFactoryBean();
             policyInfoQueryProvider.setDataSource(dataSource);
             policyInfoQueryProvider.setSelectClause("select *");
-            policyInfoQueryProvider.setFromClause("from batch_file_config");
+            policyInfoQueryProvider.setFromClause("from batch_detail");
             policyInfoQueryProvider.setWhereClause(whereClause);
             policyInfoQueryProvider.setSortKeys(sortKeyMap);
             return policyInfoQueryProvider.getObject();
         } catch (Exception e) {
-            logger.error("[file config query provider] error creating queryProvider for Reader..", e);
+            logger.error("[batch detail query provider] error creating queryProvider for Reader..", e);
             return null;
         }
     }
