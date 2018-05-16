@@ -404,4 +404,11 @@ public class DateUtil {
     public static boolean isLargeTime(Date startTime, Date endTimes) {
         return startTime.getTime() < endTimes.getTime();
     }
+
+    public static boolean isWeekend(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) || (cal.get(Calendar.DAY_OF_WEEK)
+                                                                                == Calendar.SUNDAY);
+    }
 }

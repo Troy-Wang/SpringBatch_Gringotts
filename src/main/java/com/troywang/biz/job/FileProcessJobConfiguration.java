@@ -19,6 +19,7 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 import com.troywang.base.exception.GringottsRetryableException;
 import com.troywang.base.exception.GringottsSkippableException;
+import com.troywang.biz.batch.decider.WeekendDecider;
 import com.troywang.biz.batch.listener.ExportStepExecutionListener;
 import com.troywang.biz.batch.partitioner.FileProcessPartitioner;
 import com.troywang.biz.batch.processor.BatchDetailExportProcessor;
@@ -26,6 +27,7 @@ import com.troywang.biz.batch.processor.CreateScheduleProcessor;
 import com.troywang.biz.batch.tasklet.CtxInitTasklet;
 import com.troywang.biz.batch.validator.JobParamValidator;
 import com.troywang.biz.batch.writer.ScheduleCreateWriter;
+import com.troywang.biz.constants.DeciderConstants;
 import com.troywang.biz.model.BatchDetailExportModel;
 import com.troywang.dal.entity.BatchDetailDo;
 import com.troywang.dal.entity.BatchFileConfigDo;
@@ -40,6 +42,9 @@ public class FileProcessJobConfiguration {
 
     @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    private WeekendDecider weekendDecider;
 
     @Autowired
     private CtxInitTasklet ctxInitTasklet;
@@ -65,8 +70,10 @@ public class FileProcessJobConfiguration {
         // Step1. 初始化上下文
         Step fileProcessCtxInitStep = stepBuilderFactory.get("fileProcessCtxInitStep").tasklet(ctxInitTasklet).build();
 
-        return jobBuilderFactory.get("fileProcessJob").validator(jobParamValidator).start(fileProcessCtxInitStep).next
-                (createScheduleStep).next(fileExportPartitionStep).build();
+        return jobBuilderFactory.get("fileProcessJob").validator(jobParamValidator).start(fileProcessCtxInitStep)
+                .next(weekendDecider).on(DeciderConstants.NOT_WEEKEND).to(createScheduleStep)
+                .next(fileExportPartitionStep).from(weekendDecider).on(DeciderConstants.IS_WEEKEND).end().build()
+                .build();
     }
 
     /**
