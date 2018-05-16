@@ -1,6 +1,6 @@
 # Gringotts
 
-{:toc}
+A batch-processing system based on Spring Boot and Sping Batch.
 
 ## Introduction
 
@@ -9,8 +9,7 @@
 1. How to construct a simple spring boot system
 2. How to integrate spring batch into spring boot
 3. How to use most spring batch components (Validator, Partitioner, Listener, etc.)
-4. A simple example showing how to use Zookeeper in spring boot
-5. A simple example showing how to use Kafka in spring boot
+4. How to make a Mybatis quick start.
 
 ## Database configuration
 
