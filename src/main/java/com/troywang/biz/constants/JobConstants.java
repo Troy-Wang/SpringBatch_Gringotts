@@ -6,4 +6,6 @@ package com.troywang.biz.constants;
 public class JobConstants {
 
     public static final String JOB_PARAM_DATE = "date";
+
+    public static final String JOB_CONTEXT = "jobctx";
 }

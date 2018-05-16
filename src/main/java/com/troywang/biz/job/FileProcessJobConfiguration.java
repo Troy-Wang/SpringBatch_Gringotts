@@ -63,7 +63,7 @@ public class FileProcessJobConfiguration {
     }
 
     /**
-     * Step1. 针对符合条件的batch_file_config创建对应的batch_schedule
+     * Step2. 针对符合条件的batch_file_config创建对应的batch_schedule
      *
      * @param fileConfigReader
      *
@@ -77,7 +77,7 @@ public class FileProcessJobConfiguration {
     }
 
     /**
-     * partition处理器
+     * Step3. 使用partition的方式处理每个文件导出
      *
      * @param stepBuilderFactory
      * @param detailExportStep

@@ -1,5 +1,7 @@
 package com.troywang.dal.dao;
 
+import java.util.List;
+
 import com.troywang.dal.dao.condition.BatchScheduleCondition;
 import com.troywang.dal.entity.BatchScheduleDo;
 
@@ -9,6 +11,8 @@ import com.troywang.dal.entity.BatchScheduleDo;
 public interface BatchScheduleDao {
 
     boolean insertSchedule(BatchScheduleDo record);
+
+    List<BatchScheduleDo> queryByCondition(BatchScheduleCondition condition);
 
     boolean updateByCondition(BatchScheduleDo batchScheduleDo, BatchScheduleCondition condition);
 }
