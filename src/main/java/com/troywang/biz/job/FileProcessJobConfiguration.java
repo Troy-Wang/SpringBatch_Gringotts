@@ -102,13 +102,13 @@ public class FileProcessJobConfiguration {
     @Bean
     public Step fileExportPartitionStep(StepBuilderFactory stepBuilderFactory, Step detailExportStep) {
         return stepBuilderFactory.get("fileExportPartitionStep")
-                .partitioner("detailExportStep", fileRecordValidatePartitioner()).step(detailExportStep)
+                .partitioner("detailExportStep", fileProcessPartitioner()).step(detailExportStep)
                 .taskExecutor(new SimpleAsyncTaskExecutor()).build();
     }
 
     @Bean
     @Scope(value = "step", proxyMode = ScopedProxyMode.INTERFACES)
-    public Partitioner fileRecordValidatePartitioner() {
+    public Partitioner fileProcessPartitioner() {
         return new FileProcessPartitioner();
     }
 
